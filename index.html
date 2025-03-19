@@ -3,19 +3,22 @@
   <head>
     <style>
       
-      p.larger {
-        font-size: x-large;
-      }
-      
-      p.taller {
-        line-height: 200%;
-      }
-      
       sup {
         position: relative;
         top: -0.5em;
       }
+      /* Raise the exponent further to improve visbility, especially for negative exponents. */
       
+      p.larger {
+        font-size: x-large;
+      }
+      /* Make the numbers larger. Improves the visibility of negative signs in exponents. */
+      
+      p.taller {
+        line-height: 200%;
+      }
+      /* Make each line taller to accommodate the raised exponents (see <sup> style). */
+            
     </style>
   </head>
   <body>
@@ -27,30 +30,39 @@
     <p class="larger" id="initial-number">
       &nbsp;
     </p>
+    <!-- Show the number to be written in (or out of) scientific notation -->
     
     <p id="directions">
       &nbsp;
     </p>
+    <!-- Tell the user whether to convert the number into or out of scientific notation. -->
     
     <p class="larger" id="final-number-scientific">
       <input id="user-coefficient" type="number" step="0.0001" style="width: 5em">&nbsp;x10<sup><input id="user-exponent" type="number" step="1" style="width: 3em">&nbsp;</sup>
     </p>
+    <!-- If writing the number in scientific notation, need two input boxes: one for the coeeficient and one for the exponent. -->
+    <!-- If this element is visible, the next element will be hidden. -->
     
     <p class="larger" id="final-number-longhand">
       <input id="user-longhand" type="number" step="0.000000001" style="width: 8em">&nbsp;
     </p>
+    <!-- If writing the number in standard notation, only need one input box. -->
+    <!-- If this element is visible, the previous element will be hidden. -->
     
     <p class="taller">
       <button type="button" id="check-button" onclick="check_answer();" value="Check answer">Check&nbsp;Answer</button>
     </p>
+    <!-- Button to check answer -->
     
     <p id="status" class="taller">
       &nbsp;
     </p>
+    <!-- Tell the user whether the answer was correct. If incorrect, provide the correct answer. -->
     
     <p>
       <button type="button" id="next-button" onclick="reset_widget();">Do&nbsp;another&nbsp;one</button>
     </p>
+    <!-- Button to generate a new example -->
     
     <script>
       
